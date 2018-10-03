@@ -1,0 +1,21 @@
+{
+  "name": "Lista Compra Beta",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Matheus Costa"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/bower/",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.7.4"
+  }
+}

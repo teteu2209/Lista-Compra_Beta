@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+    <title>Lista de compras Beta</title>
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<div class="container">
+    <br/>
+
+    <div class="jumbotron">
+        <h1>Lista de compras Beta</h1>
+    </div>
+
+    <div ng-controller="CartController">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Product name</th>
+                <th>Unit. Price</th>
+                <th>Final price</th>
+                <th>Qty</th>
+                <th></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr ng-repeat="product in products">
+                <td>{{ product.name }}</td>
+                <td>{{ product.price | currency:'R$' }}</td>
+                <td>{{ product.price * product.qty | currency:'R$' }}</td>
+                <td><input type="text" class="form-control" ng-model="product.qty"></td>
+                <td>
+                    <button type="button" class="btn btn-danger" ng-click="remove($index)">Remove</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <div class="well">
+            <p>Total <b>{{ totalCart() | currency:'R$' }}</b></p>
+            <p>Discount <b>{{ bill.discount | currency:'R$' }}</b></p>
+            <p>Subtotal <b>{{ subtotal() | currency:'R$' }}</b></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="assets/bower/angular/angular.min.js"></script>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/modules/shoppingModule.js"></script>
+<script type="text/javascript" src="app/controllers/cartController.js"></script>
+
+</body>
+</html>
